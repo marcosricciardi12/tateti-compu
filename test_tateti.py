@@ -8,8 +8,8 @@ class TestTateti(unittest.TestCase):
         juego = Tateti()
         self.assertTrue(type(juego.tablero), list)
         self.assertEqual(len(juego.tablero), 3)
-        for col in range(len(juego.tablero)):
-            self.assertEqual(len(juego.tablero[col]), 3)
+        for fil in range(len(juego.tablero)):
+            self.assertEqual(len(juego.tablero[fil]), 3)
 
     def test_tablero_vacio(self):
         juego = Tateti()
@@ -19,7 +19,7 @@ class TestTateti(unittest.TestCase):
 
     def test_tokens(self):
         juego = Tateti()
-        self.assertEqual(juego.tokensp1, 4)
+        self.assertEqual(juego.tokensp1, 5)
         self.assertEqual(juego.tokensp2, 4)
 
     def test_put_X_OK(self):
@@ -43,7 +43,7 @@ class TestTateti(unittest.TestCase):
         juego.insertar(2,0)
         juego.token = "X"
         juego.insertar(2,1)
-        self.assertEqual(juego.tokensp1, 0)
+        self.assertEqual(juego.tokensp1, 1)
 
     def test_cant_mov_p1_2(self):
         juego = Tateti()
@@ -51,7 +51,7 @@ class TestTateti(unittest.TestCase):
         juego.insertar(1,1)
         juego.token = "X"
         juego.insertar(0,1)
-        self.assertEqual(juego.tokensp1, 2)
+        self.assertEqual(juego.tokensp1, 3)
 
     def test_cant_mov_p2_4(self):
         juego = Tateti()
@@ -251,10 +251,10 @@ class TestTateti(unittest.TestCase):
         juego.insertar(0,2)
         juego.insertar(1,0)
         juego.insertar(1,1)
-        juego.insertar(1,2)
+        juego.insertar(2,2)
         juego.insertar(2,1)
         juego.insertar(2,0)
-        juego.insertar(2,2)
+        juego.insertar(1,2)
         self.assertTrue(juego.empate())
 
 

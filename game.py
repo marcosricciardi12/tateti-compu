@@ -3,7 +3,7 @@ from tateti import Tateti
 if __name__ == '__main__':
     juego = Tateti()
 
-    while juego.empate():
+    while not juego.empate():
         fil = int(input("Ingrese el numero de fila: "))
         col = int(input("Ingrese el numero de columna: "))
         juego.insertar(fil,col)
@@ -14,8 +14,30 @@ if __name__ == '__main__':
                 print("Gano el Jugador 2")
             break
         for a in range(len(juego.tablero)):
-            print(juego.tablero[a])
-    if not juego.empate():
+            for b in range(len(juego.tablero[a])):
+                if b == 1 or b == 0:
+                    if juego.tablero[a][b] == 0:
+                        print("     |", end="")
+                    else:
+                        print("  {}  |".format(juego.tablero[a][b]), end="")
+                else:
+                    if juego.tablero[a][b] == 0:
+                        print("     ", end="")
+                    else:
+                        print("  {}  ".format(juego.tablero[a][b]), end="")
+            print("\n-----------------")
+    if  juego.empate():
         print("Empate")            
     for a in range(len(juego.tablero)):
-            print(juego.tablero[a])
+            for b in range(len(juego.tablero[a])):
+                if b == 1 or b == 0:
+                    if juego.tablero[a][b] == 0:
+                        print("     |", end="")
+                    else:
+                        print("  {}  |".format(juego.tablero[a][b]), end="")
+                else:
+                    if juego.tablero[a][b] == 0:
+                        print("     ", end="")
+                    else:
+                        print("  {}  ".format(juego.tablero[a][b]), end="")
+            print("\n-----------------")

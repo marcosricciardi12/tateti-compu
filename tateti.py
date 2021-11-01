@@ -1,13 +1,10 @@
 
 class Tateti:
     def __init__(self):
-        self.nombre1 = ""
-        self.nombre2 = ""
         self.tablero = [[0 for x in range(3)] for y in range(3)]
-        self.tokensp1 = 4
+        self.tokensp1 = 5
         self.tokensp2 = 4
         self.token = "X"
-        self.turno = True
     
     def validar_num(self, number):
         return number <= 2 and number >= 0
@@ -77,5 +74,7 @@ class Tateti:
         if auxO == 3:
             return True
 
+        return False
+
     def empate(self):
-        return not 0 in self.tablero
+        return self.tokensp1 == 0 and self.tokensp2 == 0 and not self.victoria()
