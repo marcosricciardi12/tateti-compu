@@ -78,3 +78,18 @@ class Tateti:
 
     def empate(self):
         return self.tokensp1 == 0 and self.tokensp2 == 0 and not self.victoria()
+
+    def print_tablero(self):
+        for a in range(len(self.tablero)):
+            for b in range(len(self.tablero[a])):
+                if b == 1 or b == 0:
+                    if self.tablero[a][b] == 0:
+                        print("     |", end="")
+                    else:
+                        print("  {}  |".format(self.tablero[a][b]), end="")
+                else:
+                    if self.tablero[a][b] == 0:
+                        print("     ", end="")
+                    else:
+                        print("  {}  ".format(self.tablero[a][b]), end="")
+            print("\n-----------------")
